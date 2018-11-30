@@ -11,7 +11,6 @@ logging.basicConfig(format='%(asctime)-15s %(message)s', level=logging.INFO)
 logger = logging.getLogger(__name__)
 info = logger.info
 
-
 DIM = 300
 
 symbols = {'<pad>': [0]*DIM, '<bos>': [1]*DIM, '<eos>': [2]*DIM}
@@ -25,3 +24,5 @@ def get_num_lines(file_path):
     return lines
 
 for k, v in symbols.items():
+	
+
