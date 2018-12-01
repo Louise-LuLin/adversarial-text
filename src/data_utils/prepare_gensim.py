@@ -28,7 +28,7 @@ class DisableLogger():
 
 
 DIM = 50
-glove_file = os.path.expanduser('~/data/glove/glove_tmp.txt')
+glove_file = os.path.expanduser('~/data/glove/glove.6B.50d.txt')
 w2v_file = os.path.expanduser('~/data/glove/glove.6B.50d.w2v.txt')
 w2v_model = os.path.expanduser('~/data/glove/glove.6B.50d.w2v')
 annoy_file = os.path.expanduser('~/data/glove/glove.6B.50d.annoy')
@@ -66,7 +66,7 @@ info(model)
 info('init sims')
 model.init_sims()
 
-# build_annoy(model)
+build_annoy(model)
 info('loading annoy indexer')
 annoy_index = AnnoyIndexer()
 annoy_index.load(annoy_file)

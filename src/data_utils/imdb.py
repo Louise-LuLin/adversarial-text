@@ -1,9 +1,11 @@
 import os
 import re
 import logging
+import sys
 
-from utils import tick
+sys.path.append('..')
 
+from utils.ticktock import tick
 
 logging.basicConfig(format='%(asctime)-15s %(message)s', level=logging.INFO)
 logger = logging.getLogger(__name__)
@@ -11,7 +13,7 @@ info = logger.info
 
 
 @tick
-def prepare_imdb(datadir='~/data/imdb', rawdir='~/data/imdb/aclImdb'):
+def prepare_imdb(datadir='~/data/imdb', rawdir='~/data/aclImdb'):
     """
     Collect reviews into four files for convenience.
 
