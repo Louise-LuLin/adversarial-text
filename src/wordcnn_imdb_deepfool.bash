@@ -1,6 +1,6 @@
 #!/bin/bash
 
-seqlen=300
+seqlen=101
 adv_eps=20
 data=imdb
 
@@ -11,7 +11,7 @@ python wordcnn_deepfool.py \
        --batch_size 64 \
        --data ~/data/${data}/${data}-word-seqlen-${seqlen}.npz \
        --drop_rate 0.2 \
-       --embedding ~/data/glove/glove.840B.300d.w2v.vectors.npy \
+       --embedding ~/data/glove/glove.6B.50d.w2v.vectors.npy \
        --epochs 5 \
        --filters 128 \
        --kernel_size 3 \

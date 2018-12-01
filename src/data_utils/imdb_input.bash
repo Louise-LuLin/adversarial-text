@@ -2,7 +2,7 @@
 
 prefix=~/data/imdb
 name=imdb
-seqlen=100
+seqlen=101
 wordlen=20
 n_classes=2
 

@@ -80,12 +80,12 @@ function wordmerge {
 
 function word2index {
     python 2_token2index.py \
-           --w2v ~/data/glove/glove.840B.300d.w2v \
+           --w2v ~/data/glove/glove.6B.50d.w2v \
            --train ${datapath}/train-word.txt --test ${datapath}/test-word.txt \
            --output ${datapath}/${name}-word-seqlen-${seqlen}.npz
 }
 
-# tokenize
+tokenize
 
 charpad
 charmerge

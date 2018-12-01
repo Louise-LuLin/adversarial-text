@@ -44,6 +44,7 @@ def token2index(fname, w2v):
 def main(args):
     info('loading w2v')
     w2v = KeyedVectors.load(os.path.expanduser(args.w2v))
+#     w2v = KeyedVectors.load_word2vec_format(os.path.expanduser(args.w2v))
     data = {}
     if args.train is not None:
         info('generate training data')

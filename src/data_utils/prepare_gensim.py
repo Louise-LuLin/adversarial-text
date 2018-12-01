@@ -27,15 +27,15 @@ class DisableLogger():
         logging.disable(logging.NOTSET)
 
 
-DIM = 300
-glove_file = os.path.expanduser('~/data/glove/glove_tmp.txt')
-w2v_file = os.path.expanduser('~/data/glove/glove.840B.300d.w2v.txt')
-w2v_model = os.path.expanduser('~/data/glove/glove.840B.300d.w2v')
-annoy_file = os.path.expanduser('~/data/glove/glove.840B.300d.annoy')
+DIM = 50
+glove_file = os.path.expanduser('~/data/glove/glove.6B.50d.txt')
+w2v_file = os.path.expanduser('~/data/glove/glove.6B.50d.w2v.txt')
+w2v_model = os.path.expanduser('~/data/glove/glove.6B.50d.w2v')
+annoy_file = os.path.expanduser('~/data/glove/glove.6B.50d.annoy')
 
 
 def extend_glove():
-    symbols = {'<pad>': [1e-8]*DIM, '<bos>': [1]*DIM, '<eos>': [2]*DIM}
+    symbols = {'<pad>': [1e-8]*DIM, '<bos>': [1]*DIM, '<eos>': [2]*DIM, '<unk>': [3]*DIM}
     with open(glove_file, 'a') as w:
         for k, v in symbols.items():
             w.write('{0} {1}\n'.format(k, ' '.join(str(e) for e in v)))
@@ -56,8 +56,8 @@ def build_annoy(w2v):
     annoy_index.save(annoy_file)
 
 
-# extend_glove()
-# build_word2vec()
+extend_glove()
+build_word2vec()
 
 
 info('loading model')
@@ -67,7 +67,7 @@ info(model)
 info('init sims')
 model.init_sims()
 
-# build_annoy(model)
+build_annoy(model)
 info('loading annoy indexer')
 annoy_index = AnnoyIndexer()
 annoy_index.load(annoy_file)
